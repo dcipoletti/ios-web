@@ -2,11 +2,15 @@ import React from 'react';
 import TimeStatusContainer from './container/TimeStatusContainer';
 import DateTime from './presentation/DateTime';
 import DataFeedContainer from './container/DataFeedContainer';
+import LockTools from './presentation/LockTools';
 import SwipeUnlock from './presentation/SwipeUnlock';
+
+import CameraAppContainer from './container/CameraAppContainer';
+
 import '../styles/Phone.scss';
 
 const iPhone = () => {
-  console.log('IP');
+
   return (
     <div className="Phone">
       <div className="phoneWrapper">
@@ -26,7 +30,11 @@ const iPhone = () => {
           <TimeStatusContainer />
           <DateTime />
           <DataFeedContainer />
+          <LockTools />
           <SwipeUnlock />
+
+          {/* Camera App */}
+          <CameraAppContainer />
         </div>
       </div>
     </div>

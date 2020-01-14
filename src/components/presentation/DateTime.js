@@ -4,7 +4,7 @@ import '../../styles/presentation/DateTime.scss';
 import {Context} from '../../DataStore';
 
 const DateTime = (props) => {
-  console.log('rendering DT');
+
   const {store} = useContext(Context);
   
   return (

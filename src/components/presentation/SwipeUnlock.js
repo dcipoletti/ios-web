@@ -3,7 +3,7 @@ import '../../styles/common/animations.css';
 import '../../styles/presentation/SwipeUnlock.scss';
 
 const SwipeUnlock = () => {
-  console.log('rendering SU');
+
   return (
     <div className="SwipeUnlock">
       <div className="swipeMessage messageReveal">

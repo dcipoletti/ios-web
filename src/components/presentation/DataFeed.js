@@ -13,7 +13,7 @@ const DataFeed = () => {
   const scrollAnimating = useRef(false);
 
   useEffect(() => {
-    const dataFeed = document.querySelector('.DataFeed');
+    /*const dataFeed = document.querySelector('.DataFeed');
     const scrollWrapper = document.querySelector('.scrollWrapper');
     
     if (dataFeed !== null && scrollWrapper !== null) {
@@ -69,7 +69,7 @@ const DataFeed = () => {
           event.target.scrollTop = 0.0;
         }
       });
-    }
+    }*/
   });
 
   return (

@@ -5,7 +5,6 @@ import {Context} from '../../DataStore';
 
 const DataFeedContainer = () => {
 
-  console.log('rendering DFC');
   const {store, dispatch} = useContext(Context);
 
   useEffect(() => {

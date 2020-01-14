@@ -2,7 +2,7 @@ import React from 'react';
 import '../../styles/presentation/NetworkStatus.scss';
 
 const NetworkStatus = () => {
-  console.log('rendering NS');
+
   return (
     <div className="NetworkStatus">
       <div className="batteryIcon">

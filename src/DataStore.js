@@ -1,16 +1,19 @@
 import React from "react";
 
 export const state = {
+  userAuthenticated: false,
   dateTime: {
-    day: 'Sunday',
-    date: 'January 1',
-    time: '12:00'
+    day: '',
+    date: '',
+    time: ''
   },
   feedView: false,
   notifications: {
     fetched: false,
     data: {}
-  }
+  },
+  flashlightActive: false,
+  cameraActive: false
 };
 
 export const reducer = (state, action) => {
@@ -24,6 +27,16 @@ export const reducer = (state, action) => {
       return {
         ...state,
         notifications: action.notifications
+      }
+    case 'toggleFlashlight':
+      return {
+        ...state,
+        flashlightActive: action.flashlightActive
+      }
+    case 'toggleCamera':
+      return {
+        ...state,
+        cameraActive: action.cameraActive
       }
     default:
       return state;

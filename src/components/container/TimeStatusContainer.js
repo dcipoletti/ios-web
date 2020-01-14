@@ -5,7 +5,7 @@ import NetworkStatus from '../presentation/NetworkStatus';
 import {Context} from '../../DataStore';
 
 const TimeStatusContainer = () => {
-  console.log('rendering TSC');
+
   const {store, dispatch} = useContext(Context);
   const setTime = useRef(false);
 
