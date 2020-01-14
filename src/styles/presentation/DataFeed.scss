@@ -1,0 +1,84 @@
+.DataFeed {
+  height: 820px;
+  transform: translateY(-385px);
+  padding-top: 385px;
+
+  ::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+  }
+
+  .scrollWrapper {
+    box-sizing: border-box;
+    height: 1220px;
+    overflow-y: scroll;
+
+    .scrollFeed {
+
+      .item {
+        height: 100px;
+        width: 100%;
+      }
+    }
+  }
+
+  .notificationWrapper {
+    padding: 20px 20px 0;
+    box-sizing: border-box;
+    position: relative;
+
+    .notificationData {
+      width: 100%;
+      background: rgba(255,255,255,0.7);
+      padding: 14px 20px;
+      border-radius: 10px;
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden;
+
+      .notificationIdentity {
+        padding: 0 0 14px;
+
+        @mixin cutthroughtext {
+          -webkit-text-fill-color: rgba(0,0,0,0.4);
+          -webkit-background-clip: text;
+          background-image: url('../../img/ios13background.jpg');
+          color: black;
+        }
+
+        .notificationIcon {
+          height: 24px;
+          width: 24px;
+          float: left;
+          border-radius: 4px;
+        }
+        .notificationApp {
+          @include cutthroughtext;
+          font-size: 1.2rem;
+          text-transform: uppercase;
+          padding: 2px 32px;
+        }
+        .notificationDate {
+          @include cutthroughtext;
+          font-size: 1.2rem;
+          position: absolute;
+          top: 14px;
+          right: 20px;
+        }
+      }
+      .notificationInfo {
+
+        .notificationTitle {
+          font-family: SFProDisplay-Medium;
+          font-size: 1.4rem;
+          padding: 0 0 4px;
+        }
+        .notificationBody {
+          font-family: SFProDisplay-Light;
+          font-size: 1.4rem;
+          line-height: 1.5rem;
+        }
+      }
+    }
+  }
+}

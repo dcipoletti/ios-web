@@ -1,25 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useReducer} from 'react';
+import Phone from './components/Phone';
+import './App.scss';
+
+// Persistent State
+import { Context, state, reducer } from './DataStore';
 
 function App() {
+  const [store, dispatch] = useReducer(reducer, state);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Context.Provider value={{store, dispatch}}>
+      <div className="App">
+        <Phone />
+      </div>
+    </Context.Provider>
   );
 }
 

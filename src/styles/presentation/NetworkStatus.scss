@@ -1,0 +1,81 @@
+.NetworkStatus {
+  position: absolute;
+  top: 24px;
+  right: 42px;
+
+  .batteryIcon {
+    padding: 0px 0;
+    position: relative;
+    float: right;
+
+    .batteryTerminal {
+      height: 15px;
+      width: 30px;
+      border-radius: 5px;
+      border: 1px solid rgba(255,255,255,0.5);
+
+      .batteryPercentage {
+        height: 11px;
+        width: 16px;
+        background: #fff;
+        margin: 2px;
+        border-radius: 3px;
+      }
+    }
+    .batteryContact {
+      height: 6px;
+      width: 3px;
+      position: absolute;
+      top: calc(50% - 3px);
+      right: -4px;
+      overflow: hidden;
+
+      .contactPoint {
+        height: 6px;
+        width: 6px;
+        background: rgba(255,255,255,0.5);
+        border-radius: 50%;
+        position: absolute;
+        left: -4px;
+      }
+    }
+  }
+  .connectionType {
+    font-family: SFProText-Medium;
+    font-size: 1.0rem;
+    color: #fff;
+    float: right;
+    padding: 0 5px;
+  }
+  .networkConnection {
+    float: right;
+
+    .barWrapper {
+      padding: 0 1px;
+      display: inline-block;
+
+      .connectionBar {
+        width: 4px;
+        background: #fff;
+        vertical-align: bottom;
+        border-radius: 1px;
+
+        &.small {
+          height: 6px;
+        }
+        &.medium {
+          height: 8px;
+        }
+        &.large {
+          height: 11px;
+        }
+        &.xlarge {
+          height: 14px;
+        }
+      }
+      &.noConnection {
+        opacity: 0.6;
+      }
+    }
+  }
+}

@@ -1,5 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './fonts/SFProDisplay-Light.ttf';
+import './fonts/SFProDisplay-Thin.ttf';
+import './fonts/SFProDisplay-Regular.ttf';
+import './fonts/SFProDisplay-Medium.ttf';
+import './fonts/SFProText-Medium.ttf';
+import './fonts/SFProText-Bold.ttf';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';

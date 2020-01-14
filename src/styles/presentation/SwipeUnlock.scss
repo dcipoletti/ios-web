@@ -1,0 +1,34 @@
+.SwipeUnlock {
+  height: 140px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+
+  .swipeMessage {
+    width: 100%;
+    font-family: SFProText-Bold;
+    font-size: 1.5rem;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    transform: translateY(90px) translateZ(0);
+    opacity: 0.0;
+
+    &.messageReveal {
+      animation: floatmessage 10s linear 3s infinite;
+    }
+  }
+  .swipeIndicator {
+    height: 8px;
+    width: 34%;
+    background: #fff;
+    border-radius: 4px;
+    position: absolute;
+    margin-left: 33%;
+    transform: translateY(120px) translateZ(0);
+
+    &.pushMessage {
+      animation: pushmessage 10s linear 3s infinite;
+    }
+  }
+}

@@ -9254,6 +9254,11 @@ rsvp@^4.8.4:
   resolved "https://registry.yarnpkg.com/rsvp/-/rsvp-4.8.5.tgz#c8f155311d167f68f21e168df71ec5b083113734"
   integrity sha512-nfMOlASu9OnRJo1mbEk2cz0D56a1MBNrJ7orjRZQG10XDyuvwksKbuXNp6qa+kbn839HwjwhBzhFmdsaEAfauA==
 
+rubber-band-effect@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/rubber-band-effect/-/rubber-band-effect-0.1.1.tgz#1137e804c7e7436b5c6c97ea98a99c0973a5eadd"
+  integrity sha1-ETfoBMfnQ2tcbJfqmKmcCXOl6t0=
+
 run-async@^2.2.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/run-async/-/run-async-2.3.0.tgz#0371ab4ae0bdd720d4166d7dfda64ff7a445a6c0"
