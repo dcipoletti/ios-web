@@ -13,12 +13,10 @@
     background: rgba(0,0,0,0.8);
     padding: 0;
     margin: 25px 0 0;
-    outline: none;
-    border: none;
-    float: none;
-    overflow: hidden;
     border-radius: 50%;
     position: absolute;
+    float: none;
+    overflow: hidden;
 
     &:active {
       background: rgba(30,30,30,0.9);

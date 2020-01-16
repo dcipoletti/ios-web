@@ -1,4 +1,6 @@
 import React from 'react';
+import CameraOptions from './camera/CameraOptions';
+import CameraControls from './camera/CameraControls';
 import '../../styles/common/animations.css';
 import '../../styles/presentation/CameraApp.scss';
 
@@ -7,9 +9,9 @@ const CameraApp = (props) => {
   return (
     props.active ?
     <div className="CameraApp">
-      <div className="cameraFlash"></div>
+      <CameraOptions />
       <div className="cameraView"></div>
-      <div className="cameraControls"></div>
+      <CameraControls />
     </div> : ''
   );
 }

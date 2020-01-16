@@ -10,23 +10,9 @@
   & > * {
     width: 100%;
   }
-  .cameraFlash {
-    height: 100px;
-    background: red;
-    position: absolute;
-    top: 0;
-    z-index: 1;
-  }
   .cameraView {
     height: 100%;
     background: blue;
     position: absolute;
-  }
-  .cameraControls {
-    height: 200px;
-    background: yellow;
-    position: absolute;
-    bottom: 0;
-    z-index: 1;
   }
 }

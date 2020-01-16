@@ -13,7 +13,8 @@ export const state = {
     data: {}
   },
   flashlightActive: false,
-  cameraActive: false
+  cameraActive: true,
+  cameraType: 'photo'
 };
 
 export const reducer = (state, action) => {
@@ -37,6 +38,11 @@ export const reducer = (state, action) => {
       return {
         ...state,
         cameraActive: action.cameraActive
+      }
+    case 'selectCamera':
+      return {
+        ...state,
+        cameraType: action.cameraType
       }
     default:
       return state;

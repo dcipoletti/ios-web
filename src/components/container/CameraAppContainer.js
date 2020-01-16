@@ -5,7 +5,7 @@ import {Context} from '../../DataStore';
 
 const CameraAppContainer = () => {
   
-  const {store, dispatch} = useContext(Context);
+  const {store} = useContext(Context);
 
   return (
     <div className="CameraAppContainer">

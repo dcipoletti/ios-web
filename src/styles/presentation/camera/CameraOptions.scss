@@ -1,0 +1,401 @@
+.cameraOptions {
+  height: 160px;
+  width: 100%;
+  background: #000;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  padding: 0px 20px;
+  box-sizing: border-box;
+
+  .flash, .flashIndicator {
+    .flashIcon {
+      height: 32px;
+      width: 32px;
+      padding: 4px;
+      position: relative;
+
+      .flashUp {
+        width: 0;
+        height: 0;
+        border-bottom: 20px solid #fff;
+        border-left: 10px solid transparent;
+        transform: rotate(20deg);
+        margin-left: 10px;
+      }
+      .flashDown {
+        width: 0;
+        height: 0;
+        border-top: 20px solid #fff;
+        border-left: 10px solid transparent;
+        margin: -3px 10px;
+        transform: rotate(33deg);
+      }
+      .flashOff {
+        height: 40px;
+        width: 2px;
+        background: #fff;
+        border: 1px solid #000;
+        position: absolute;
+        transform: rotate(-45deg);
+        top: 2px;
+        left: calc(50% - 1px);
+
+        &.off {
+          display: none;
+        }
+      }
+    }
+    &.on {
+      .flashIcon {
+        .flashUp {
+          border-bottom: 20px solid #ffcc00;
+        }
+        .flashDown {
+          border-top: 20px solid #ffcc00;
+        }
+      }
+    }
+    &:not(.flash) {
+      height: 28px;
+      width: 60px;
+      background: #ffcc00;
+      border-radius: 3px;
+
+      .flashIcon {
+        transform: scale(0.5) translate(16px, -16px);
+
+        .flashUp {
+          border-bottom: 20px solid #000;
+        }
+        .flashDown {
+          border-top: 20px solid #000;
+        }
+      }
+    }
+  }
+
+  .optionButton {
+    padding-top: 60px;
+    opacity: 1.0;
+    transition: opacity 400ms;
+    position: absolute;
+    display: block;
+
+    &.hidden {
+      opacity: 0.0;
+      display: none;
+    }
+    &.live {
+      left: 185px;
+
+      .liveIcon {
+        height: 32px;
+        width: 32px;
+        padding: 4px;
+        position: relative;
+
+        .liveDotted {
+          height: 30px;
+          width: 30px;
+          border: 2px dotted #fff;
+          border-radius: 50%;
+          position: absolute;
+        }
+        .liveThin {
+          height: 18px;
+          width: 18px;
+          border: 2px solid #fff;
+          border-radius: 50%;
+          position: absolute;
+          top: calc(50% - 10px);
+          left: calc(50% - 10px);
+        }
+        .liveThick {
+          height: 4px;
+          width: 4px;
+          border: 3px solid #fff;
+          border-radius: 50%;
+          position: absolute;
+          top: calc(50% - 4px);
+          left: calc(50% - 4px);
+        }
+        .liveOff {
+          height: 40px;
+          width: 2px;
+          background: #fff;
+          border: 1px solid #000;
+          position: absolute;
+          transform: rotate(-45deg);
+          top: 0px;
+          left: calc(50% - 1px);
+
+          &.off {
+            display: none;
+          }
+        }
+      }
+      &.on {
+        .liveIcon {
+          .liveDotted {
+            border: 2px dotted #ffcc00;
+            transform: translateZ(0);
+            animation: dottedPulse 1.3s linear 400ms forwards;
+          }
+          .liveThin {
+            border: 2px solid #ffcc00;
+            transform: translateZ(0);
+            animation: thinPulse 800ms linear 800ms forwards;
+          }
+          .liveThick {
+            border: 3px solid #ffcc00;
+            transform: translateZ(0);
+            animation: thickPulse 900ms linear 0s forwards;
+          }
+          .movingThin {
+            height: 2px;
+            width: 2px;
+            border: 2px solid #ffcc00;
+            border-radius: 50%;
+            transform: translate(14px,14px) translateZ(0);
+            animation: mThinPulse 1.3s linear 200ms forwards;
+          }
+        }
+        &.wasLive {
+          .liveIcon {
+            .liveDotted {
+              animation: none;
+            }
+            .liveThin {
+              animation: none;
+            }
+            .liveThick {
+              animation: none;
+            }
+            .movingThin {
+              animation: none;
+            }
+          }
+        }
+      }
+    }
+    &.wasOn {
+      .liveIcon {
+        .liveDotted {
+          border: 2px dotted #ffcc00;
+        }
+        .liveThin {
+          border: 2px solid #ffcc00;
+        }
+        .liveThick {
+          border: 3px solid #ffcc00;
+        }
+        .movingThin {
+          height: 2px;
+          width: 2px;
+          border: 2px solid #ffcc00;
+          border-radius: 50%;
+        }
+      }
+    }
+    &.timer {
+      left: 370px;
+      transition: left 350ms;
+
+      &.active {
+        left: 20px;
+        transition: left 350ms;
+      }
+
+      .timerIcon {
+        height: 32px;
+        width: 32px;
+        padding: 4px;
+        position: relative;
+
+        .timerClock {
+          height: 30px;
+          width: 30px;
+          border: 2px solid #fff;
+          border-radius: 50%;
+        }
+        .timerTick {
+          height: 7px;
+          width: 3px;
+          background: #fff;
+          position: absolute;
+          top: 5px;
+          left: 20px;
+        }
+        .timerUntil {
+          width: 0;
+          height: 0;
+          border-top: 10px solid #000;
+          border-left: 20px solid transparent;
+          position: absolute;
+          top: 4px;
+          left: 1px;
+        }
+        .timerArm {
+          position: absolute;
+          top: calc(50% - 2px);
+          left: calc(50% - 1px);
+          transform: rotate(-45deg);
+
+          .timerHand {
+            height: 6px;
+            width: 6px;
+            background: #fff;
+            border-radius: 50%;
+          }
+          .timerHead {
+            width: 0;
+            height: 0;
+            border-left: 3px solid transparent;
+            border-right: 3px solid transparent;
+            border-bottom: 14px solid #fff;
+            position: absolute;
+            top: -11px;
+            left: 0;
+          }
+        }
+      }
+      .timerTime {
+        font-family: SFProDisplay-Medium;
+        font-size: 1.0rem;
+        color: #ffcc00;
+        position: absolute;
+        top: 72px;
+        left: 46px;
+        opacity: 0.0;
+
+        &.active {
+          opacity: 1.0;
+        }
+        &.hidden {
+          display: none;
+        }
+      }
+      &.on {
+        .timerIcon {
+          .timerClock {
+            border: 2px solid #ffcc00;
+          }
+          .timerTick {
+            background: #ffcc00;
+          }
+          .timerArm {
+            .timerHand {
+              background: #ffcc00;
+            }
+            .timerHead {
+              border-bottom: 14px solid #ffcc00;
+            }
+          }
+        }
+      }
+    }
+    &.effect {
+      left: 555px;
+
+      .effectIcon {
+        height: 32px;
+        width: 32px;
+        padding: 4px;
+        position: relative;
+
+        .effectCircle {
+          height: 24px;
+          width: 24px;
+          border-radius: 50%;
+          position: absolute;
+
+          &.light {
+            background: rgba(255,255,255,0.8);
+            bottom: 2px;
+            right: 0px;
+          }
+          &.medium {
+            background: rgba(255,255,255,0.5);
+            top: 2px;
+            left: calc(50% - 10px); 
+          }
+          &.dark {
+            background: rgba(255,255,255,0.3);
+            bottom: 2px;
+            left: 0px; 
+          }
+        }
+      }
+    }
+  }
+  .labelWrapper {
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+
+    .labelStack {
+      .label {
+        display: inline-block;
+        padding: 4px;
+        vertical-align: top;
+
+        .liveIndicator {
+          height: 28px;
+          width: 0%;
+          border-radius: 3px;
+          transition: width 50ms;
+          overflow: hidden;
+          
+          &.visible {
+            width: 100%;
+            transition: 
+              width 350ms, 
+              background 0ms linear 350ms;
+          }
+          .liveText {
+            padding: 5px 15px;
+            opacity: 0.0;
+          }
+          &.showing {
+            .liveText {
+              opacity: 1.0;
+              background: #fefefe;
+            }
+            &.on {
+              .liveText {
+                background: #ffcc00;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .optionWrapper {
+    opacity: 1.0;
+    transition: opacity 400ms ease 100ms;
+    margin-left: 110px;
+
+    &.hidden {
+      opacity: 0.0;
+      transition: opacity 0ms;
+    }
+    .optionSelection {
+      width: 120px;
+      text-align: center;
+      font-family: SFProDisplay-Medium;
+      font-size: 1.0rem;
+      color: #fff;
+      padding: 70px 50px 12px;
+
+      &.selected {
+        color: #ffcc00;
+      }
+    }
+  }
+}
