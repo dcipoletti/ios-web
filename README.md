@@ -22,6 +22,14 @@ All interactions are done with pure vanilla Javascript and CSS3 animations. All 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Setup
+
+In the project directory, initially run:
+
+## `yarn install`
+
+After installing the required dependencies, you can run the following scripts.
+
 ## Available Scripts
 
 In the project directory, you can run:
