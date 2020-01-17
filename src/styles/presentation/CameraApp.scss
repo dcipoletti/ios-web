@@ -6,8 +6,18 @@
   position: absolute;
   top: 0;
   z-index: 2;
+  transform: scale(0.6);
+  opacity: 0.0;
+  transition: transform 450ms, opacity 450ms;
 
-  & > * {
-    width: 100%;
+  &.cameraActive {
+    transform: scale(1.0);
+    opacity: 1.0;
+    transition: transform 450ms, opacity 450ms;
+  }
+  .cameraComponents {
+    & > * {
+      width: 100%;
+    }
   }
 }

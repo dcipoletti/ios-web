@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import '../../../styles/common/animations.scss';
 import '../../../styles/presentation/camera/CameraControls.scss';
 
@@ -19,12 +19,20 @@ const CameraControls = (props) => {
   }
 
   function shutter() {
-    props.shutter();
-    setTakingPhoto(true);
-    setTimeout(() => {
-      setTakingPhoto(false);
-    },500);
+    if (!store.takingPhoto) {
+      props.shutter();
+      setTakingPhoto(true);
+      setTimeout(() => {
+        setTakingPhoto(false);
+      },500);
+    }
   }
+
+  useEffect(() => {
+    const cameraPhoto = document.querySelector('.cameraPhoto');
+    const photoPresent = (cameraPhoto !== null && cameraPhoto.hasAttribute('src'));
+    cameraPhoto.style.visibility = (photoPresent ? 'visible' : 'hidden');
+  });
 
   return (
     <div className="CameraControls">
@@ -46,9 +54,9 @@ const CameraControls = (props) => {
       <div className="cameraButtons">
         <div className="photoLibrary">
           <div className="cameraOutput">
-						<img 
+            <img 
 							className="cameraPhoto" 
-							alt="Screen capture preview" /> 
+              alt="Screen capture preview" /> 
 					</div>
         </div>
         <button 

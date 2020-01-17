@@ -9,10 +9,7 @@ const CameraOptions = () => {
   const {store, dispatch} = useContext(Context);
 
   // Option State Management
-  const [flash, setFlash] = useState('Off');
   const [live, setLive] = useState(false);
-  const [timer, setTimer] = useState('Off');
-  const [effect, setEffect] = useState('none');
 
   // Visible State Management
   const [wasLive, setWasLive] = useState(false);
@@ -26,10 +23,22 @@ const CameraOptions = () => {
   // Menu selection for Flash and Timer
   function selectChoice(option) {
     if (settingFlash) {
-      setFlash(option);
+      dispatch({
+        type: 'cameraOptions',
+        camera: {
+          ...store.camera,
+          flash: option
+        }
+      });
       setSettingFlash(false);
     } else {
-      setTimer(option);
+      dispatch({
+        type: 'cameraOptions',
+        camera: {
+          ...store.camera,
+          timer: option.replace('s','')
+        }
+      });
       setSettingTimer(false);
       if (option !== 'Off') {
         setTimerTime(false);
@@ -82,12 +91,12 @@ const CameraOptions = () => {
       <button 
         className={`optionButton flash
         ${settingTimer ? " hidden" : ""}
-        ${(flash !== 'Off' && !settingFlash) ? " on" : ""}`}
+        ${(store.camera.flash !== 'Off' && !settingFlash) ? " on" : ""}`}
         onClick={() => setSettingFlash(settingFlash ? !settingFlash : true)}>
         <div className="flashIcon">
           <div className="flashUp"></div>
           <div className="flashDown"></div>
-          <div className={`flashOff${flash !== "Off" || settingFlash ? " off" : ""}`}></div>
+          <div className={`flashOff${store.camera.flash !== "Off" || settingFlash ? " off" : ""}`}></div>
         </div>
       </button>
 
@@ -112,7 +121,7 @@ const CameraOptions = () => {
         className={`optionButton timer
         ${settingFlash ? " hidden" : ""}
         ${settingTimer ? " active" : ""}
-        ${(timer !== 'Off' && !settingTimer) ? " on" : ""}`}
+        ${(store.camera.timer !== 'Off' && !settingTimer) ? " on" : ""}`}
         onClick={() => setSettingTimer(!settingTimer)}>
         <div className="timerIcon">
           <div className="timerClock"></div>
@@ -124,9 +133,9 @@ const CameraOptions = () => {
           </div>
         </div>
         <div className={`timerTime
-          ${settingTimer || timer === 'Off' ? " hidden" : ""}
+          ${settingTimer || store.camera.timer === 'Off' ? " hidden" : ""}
           ${timerTime ? " active" : ""}`}>
-          {timer}
+          {`${store.camera.timer}s`}
         </div>
       </button>
 
@@ -134,7 +143,7 @@ const CameraOptions = () => {
       <button 
         className={`optionButton effect${settingFlash || settingTimer ? " hidden" : ""}`}
         onClick={() => selectEffect()}>
-        <div className={`effectIcon${effect === 'none' ? "" : " effect"}`}>
+        <div className={`effectIcon${store.effects.effect === 'none' ? "" : " effect"}`}>
           <div className="effectCircle light"></div>
           <div className="effectCircle medium"></div>
           <div className="effectCircle dark"></div>
@@ -145,7 +154,7 @@ const CameraOptions = () => {
       {store.effects.active ? '' :
       <div className="labelWrapper">
         <div className="labelStack">
-          {(flash !== 'Off' && !settingTimer) ? 
+          {(store.camera.flash !== 'Off' && !settingTimer) ? 
           <div className="label">
             <div className="flashIndicator">
               <div className="flashIcon">
@@ -177,7 +186,7 @@ const CameraOptions = () => {
         {options.map((option, i) => {
             return (
               <button 
-                className={`optionSelection${option === String(settingFlash ? flash : timer) ? " selected" : ""}`} 
+                className={`optionSelection${option === String(settingFlash ? store.camera.flash : store.camera.timer) ? " selected" : ""}`} 
                 key={`option${i}`}
                 onClick={() => selectChoice(option)}>
                 {option}

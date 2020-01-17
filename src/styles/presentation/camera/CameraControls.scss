@@ -54,7 +54,6 @@
 
       .cameraOutput {
         position: absolute;
-        transform: rotateY(180deg);
   
         &.hidden {
           visibility: hidden;

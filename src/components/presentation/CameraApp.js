@@ -14,12 +14,15 @@ const CameraApp = (props) => {
   }
 
   return (
-    props.active ?
-    <div className="CameraApp">
-      <CameraOptions />
-      <ImageCamera ref={imageCamera} />
-      <CameraControls shutter={() => cameraShutter()} />
-    </div> : ''
+    <div className={`CameraApp${props.active ? " cameraActive" : ""}`}>
+      {props.active ?
+      <div className="cameraComponents">
+        <CameraOptions />
+        <ImageCamera ref={imageCamera} />
+        <CameraControls shutter={() => cameraShutter()} />
+      </div> : ''
+      }
+    </div>
   );
 }
 

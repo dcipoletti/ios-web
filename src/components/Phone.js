@@ -1,15 +1,18 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import TimeStatusContainer from './container/TimeStatusContainer';
 import DateTime from './presentation/DateTime';
 import DataFeedContainer from './container/DataFeedContainer';
 import LockTools from './presentation/LockTools';
 import SwipeUnlock from './presentation/SwipeUnlock';
-
 import CameraAppContainer from './container/CameraAppContainer';
-
+//import UnlockScreen from './presentation/UnlockScreen';
 import '../styles/Phone.scss';
 
-const iPhone = () => {
+import {Context} from '../DataStore';
+
+const Phone = () => {
+
+  const {store} = useContext(Context);
 
   return (
     <div className="Phone">
@@ -26,19 +29,22 @@ const iPhone = () => {
             </div>
           </div>
 
-          {/* Screen Components */}
-          <TimeStatusContainer />
-          <DateTime />
-          <DataFeedContainer />
-          <LockTools />
-          <SwipeUnlock />
-
           {/* Camera App */}
           <CameraAppContainer />
+
+          {/* Screen Components */}
+          <div className={`onScreen${store.cameraActive ? " cameraActive" : ""}`}> 
+            <DataFeedContainer />
+            <LockTools />
+            {/*<UnlockScreen />*/}
+            <TimeStatusContainer />
+            <DateTime />
+          </div>
+          <SwipeUnlock />
         </div>
       </div>
     </div>
   );
 }
 
-export default iPhone;
+export default Phone;

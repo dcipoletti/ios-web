@@ -2,10 +2,12 @@
   height: 820px;
   transform: translateY(-385px);
   padding-top: 385px;
+  position: absolute;
+  top: 0;
 
   ::-webkit-scrollbar {
-    width: 0px;  /* Remove scrollbar space */
-    background: transparent;  /* Optional: just make scrollbar invisible */
+    width: 0px;
+    background: transparent;
   }
 
   .scrollWrapper {
@@ -14,6 +16,7 @@
     overflow-y: scroll;
 
     .scrollFeed {
+      padding-top: 380px;
 
       .item {
         height: 100px;

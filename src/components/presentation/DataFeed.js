@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useRef} from 'react';
+import React, {useContext, useEffect} from 'react';
 import rubberBandEffect from 'rubber-band-effect';
 import '../../styles/presentation/DataFeed.scss';
 
@@ -8,15 +8,20 @@ const DataFeed = () => {
 
   const {store} = useContext(Context);
 
-  const scrolling = useRef(false);
+  /*const scrolling = useRef(false);
   const scrollCallback = useRef(null);
-  const scrollAnimating = useRef(false);
+  const scrollAnimating = useRef(false);*/
 
   useEffect(() => {
-    /*const dataFeed = document.querySelector('.DataFeed');
+    const dataFeed = document.querySelector('.DataFeed');
     const scrollWrapper = document.querySelector('.scrollWrapper');
-    
+
     if (dataFeed !== null && scrollWrapper !== null) {
+      rubberBandEffect(scrollWrapper);
+    }
+    
+    // Commenting out snap back scrolling prototype
+    /*if (dataFeed !== null && scrollWrapper !== null) {
       rubberBandEffect(scrollWrapper);
 
       scrollWrapper.addEventListener('wheel', (event) => {

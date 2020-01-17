@@ -3,7 +3,7 @@ import Phone from './components/Phone';
 import './App.scss';
 
 // Persistent State
-import { Context, state, reducer } from './DataStore';
+import {Context, state, reducer} from './DataStore';
 
 function App() {
   const [store, dispatch] = useReducer(reducer, state);

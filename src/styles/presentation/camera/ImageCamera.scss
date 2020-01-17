@@ -28,10 +28,26 @@
         margin-top: 0;
         transition: margin-top 250ms;
         transform: rotateY(180deg) scale(1.0);
+        opacity: 1.0;
+
+        &.snapping {
+          opacity: 0.0;
+        }
 
         &.zoomed {
           transform: rotateY(180deg) scale(2.0);
         }
+      }
+      .countDown {
+        height: 360px;
+        width: calc(100% - 60px);
+        font-size: 26.0rem;
+        text-align: center;
+        color: #fff;
+        text-shadow: -4px 4px 6px rgba(0,0,0,0.7);
+        position: absolute;
+        top: calc(50% - 230px);
+        z-index: 3;
       }
       .cameraZoom {
         height: 60px;
@@ -49,6 +65,19 @@
   
         .zoomLevel {
           color: #fff;
+        }
+      }
+      .cameraFlash {
+        height: 100%;
+        width: 100%;
+        background: #fff;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: none;
+
+        &.flash {
+          display: block;
         }
       }
       &.active {

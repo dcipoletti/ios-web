@@ -13,12 +13,18 @@ export const state = {
     data: {}
   },
   flashlightActive: false,
-  cameraActive: true,
+  cameraActive: false,
+  takingPhoto: false,
   effects: {
     active: false,
     effect: 'none'
   },
+  camera: {
+    flash: 'Off',
+    timer: 'Off'
+  },
   cameraType: 'photo',
+  unlocking: false
 };
 
 export const reducer = (state, action) => {
@@ -43,15 +49,45 @@ export const reducer = (state, action) => {
         ...state,
         cameraActive: action.cameraActive
       }
+    case 'takingPhoto':
+      return {
+        ...state,
+        takingPhoto: action.takingPhoto
+      }
     case 'toggleEffects':
       return {
         ...state,
         effects: action.effects
       }
+    case 'cameraOptions':
+      return {
+        ...state,
+        camera: action.camera
+      }
     case 'selectCamera':
       return {
         ...state,
         cameraType: action.cameraType
+      }
+    case 'resetCamera':
+      return {
+        ...state,
+        cameraActive: false,
+        takingPhoto: false,
+        effects: {
+          active: false,
+          effect: 'none'
+        },
+        camera: {
+          flash: 'Off',
+          timer: 'Off'
+        },
+        cameraType: 'photo'
+      }
+    case 'toggleUnlocking':
+      return {
+        ...state,
+        unlocking: action.unlocking
       }
     default:
       return state;

@@ -1,0 +1,76 @@
+.UnlockScreen {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  
+  .unlockBlur {
+    height: 110%;
+    width: 110%;
+    background-image: url('../../img/ios13background.jpg');
+    background-size: auto 1478px;
+    position: absolute;
+    top: -5%;
+    left: -5%;
+    filter: blur(20px);
+    
+    .blurMask {
+      height: 100%;
+      width: 100%;
+      background: rgba(255,255,255,0.2);
+    }
+  }
+
+  .numberWrapper {
+    position: absolute;
+    top: 400px;
+    left: calc(50% - 255px);
+
+    .numberGroup {
+      width: 510px;
+      height: 780px;
+      box-sizing: border-box;
+
+      .number {
+        height: 170px;
+        width: 170px;
+        padding: 2%;
+
+        &.zero {
+          margin-left: 33%;
+        }
+
+        .textWrapper {
+          height: 94%;
+          width: 94%;
+          background: rgba(215,215,215,0.3);
+          border-radius: 50%;
+          color: #fff;
+          box-sizing: border-box;
+          padding: 25px;
+          transition: background 150ms;
+
+          .numberNumber {
+            font-family: SFProDisplay-Medium;
+            font-size: 3.8rem;
+            line-height: 3.8rem;
+
+            &.zero {
+              padding: 15px 0;
+            }
+          }
+          .numberLetters {
+            font-family: SFProText-Bold;
+            letter-spacing: 0.2rem;
+          }
+        }
+        &.selected {
+          .textWrapper {
+            background: rgba(215,215,215,0.7);
+            transition: background 150ms;
+          }
+        }
+      }
+    }
+  }
+}

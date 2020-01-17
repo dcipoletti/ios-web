@@ -23,6 +23,7 @@ const LockTools = () => {
   }
 
   return (
+    store.unlocking ? '' :
     <div className="LockTools">
       <button 
         className="toolButton flashlight"
