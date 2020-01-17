@@ -1,4 +1,4 @@
-.cameraOptions {
+.CameraOptions {
   height: 160px;
   width: 100%;
   background: #000;
@@ -7,6 +7,12 @@
   z-index: 1;
   padding: 0px 20px;
   box-sizing: border-box;
+  transition: height 250ms;
+
+  &.effectsActive {
+    height: 120px;
+    transition: height 250ms;
+  }
 
   .flash, .flashIndicator {
     .flashIcon {
@@ -324,6 +330,19 @@
             background: rgba(255,255,255,0.3);
             bottom: 2px;
             left: 0px; 
+          }
+        }
+        &:not(.none) {
+          .effectCircle {
+            &.light {
+              background: rgba(255,255,255,0.8);
+            }
+            &.medium {
+              background: rgba(255,255,255,0.5);
+            }
+            &.dark {
+              background: rgba(255,255,255,0.3);
+            }
           }
         }
       }

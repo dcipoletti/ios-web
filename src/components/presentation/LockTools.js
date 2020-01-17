@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import '../../styles/common/animations.css';
+import '../../styles/common/animations.scss';
 import '../../styles/presentation/LockTools.scss';
 
 import {Context} from '../../DataStore';

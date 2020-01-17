@@ -1,17 +1,24 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import CameraOptions from './camera/CameraOptions';
+import ImageCamera from './camera/ImageCamera';
 import CameraControls from './camera/CameraControls';
-import '../../styles/common/animations.css';
+import '../../styles/common/animations.scss';
 import '../../styles/presentation/CameraApp.scss';
 
 const CameraApp = (props) => {
+
+  const imageCamera = useRef();
+
+  function cameraShutter() {
+    imageCamera.current.takePhoto();
+  }
 
   return (
     props.active ?
     <div className="CameraApp">
       <CameraOptions />
-      <div className="cameraView"></div>
-      <CameraControls />
+      <ImageCamera ref={imageCamera} />
+      <CameraControls shutter={() => cameraShutter()} />
     </div> : ''
   );
 }

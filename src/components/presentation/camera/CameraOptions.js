@@ -1,9 +1,13 @@
-import React, {useState} from 'react';
-import '../../../styles/common/animations.css';
+import React, {useState,useContext} from 'react';
+import '../../../styles/common/animations.scss';
 import '../../../styles/presentation/camera/CameraOptions.scss';
+
+import {Context} from '../../../DataStore';
 
 const CameraOptions = () => {
   
+  const {store, dispatch} = useContext(Context);
+
   // Option State Management
   const [flash, setFlash] = useState('Off');
   const [live, setLive] = useState(false);
@@ -58,11 +62,21 @@ const CameraOptions = () => {
     }
   }
 
+  function selectEffect() {
+    dispatch({
+      type: 'toggleEffects',
+      effects: {
+        active: !store.effects.active,
+        effect: store.effects.effect
+      },
+    });
+  }
+
   // Menu array selections
   const options = settingFlash ? ['Auto', 'On', 'Off'] : ['Off', '3s', '10s'];
 
   return (
-    <div className="cameraOptions">
+    <div className={`CameraOptions${store.effects.active ? " effectsActive" : ""}`}>
 
       {/* Camera Flash */}
       <button 
@@ -119,8 +133,8 @@ const CameraOptions = () => {
       {/* Camera Effects */}
       <button 
         className={`optionButton effect${settingFlash || settingTimer ? " hidden" : ""}`}
-        onClick={() => setEffect('none')}>
-        <div className="effectIcon">
+        onClick={() => selectEffect()}>
+        <div className={`effectIcon${effect === 'none' ? "" : " effect"}`}>
           <div className="effectCircle light"></div>
           <div className="effectCircle medium"></div>
           <div className="effectCircle dark"></div>
@@ -128,6 +142,7 @@ const CameraOptions = () => {
       </button>
 
       {/* Dynamic Labels */}
+      {store.effects.active ? '' :
       <div className="labelWrapper">
         <div className="labelStack">
           {(flash !== 'Off' && !settingTimer) ? 
@@ -154,6 +169,7 @@ const CameraOptions = () => {
           }
         </div>
       </div>
+      }
 
       {/* Dynamic Option Selections */}
       {(settingFlash || settingTimer) ? 

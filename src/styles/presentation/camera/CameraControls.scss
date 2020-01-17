@@ -1,5 +1,5 @@
 .CameraControls {
-  height: 300px;
+  height: 260px;
   background: #000;
   position: absolute;
   bottom: 0;
@@ -25,7 +25,7 @@
       }
 
       .type {
-        font-family: SFProDisplay-Medium;
+        font-family: SFProDisplay-Regular;
         font-size: 1.2rem;
         color: #fff;
         text-transform: uppercase;
@@ -50,6 +50,21 @@
       position: absolute;
       border-radius: 8px;
       margin: 12px 24px;
+      overflow: hidden;
+
+      .cameraOutput {
+        position: absolute;
+        transform: rotateY(180deg);
+  
+        &.hidden {
+          visibility: hidden;
+        }
+        .cameraPhoto {
+          height: 140px;
+          width: 100px;
+          margin-top: -20px;
+        }
+      }
     }
 
     .shutterButton {
@@ -66,6 +81,12 @@
         border: 3px solid #000;
         border-radius: 50%;
         margin: 12px;
+        position: relative;
+
+        &.active {
+          transform: translateZ(0);
+          animation: quickPulse 500ms linear 0s forwards;
+        }
       }
     }
 

@@ -1,0 +1,130 @@
+.ImageCamera {
+  height: 100%;
+  position: absolute;
+  margin-top: 0;
+  transition: margin-top 250ms;
+
+  &.active {
+    margin-top: -40px;
+    transition: margin-top 250ms;
+  }
+
+  .cameraCamera {
+    height: 100%;
+    width: 100%;
+    position: relative;
+
+    .cameraItemWrapper {
+      height: 970px;
+      width: 110%;
+      position: relative;
+      margin-top: 120px;
+      transition: margin-top 250ms;
+
+      .cameraVideo {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        margin-top: 0;
+        transition: margin-top 250ms;
+        transform: rotateY(180deg) scale(1.0);
+
+        &.zoomed {
+          transform: rotateY(180deg) scale(2.0);
+        }
+      }
+      .cameraZoom {
+        height: 60px;
+        width: 60px;
+        font-family: SFProDisplay-Regular;
+        font-size: 1.2rem;
+        background: rgba(0,0,0,0.2);
+        border: 2px solid #fff;
+        border-radius: 50%;
+        position: absolute;
+        bottom: 30px;
+        left: calc(50% - 60px);
+        z-index: 2;
+        transition: bottom 250ms;
+  
+        .zoomLevel {
+          color: #fff;
+        }
+      }
+      &.active {
+        margin-top: 115px;
+        transition: margin-top 250ms;
+
+        .cameraVideo {
+          margin-top: -60px;
+          transition: margin-top 250ms;
+        }
+        .cameraZoom {
+          bottom: 90px;
+          transition: bottom 250ms;
+        }
+      }
+    }
+  }
+  .cameraCanvas {
+    display: block;
+  }
+  .effectsContainer {
+    height: 0px;
+    width: 100%;
+    background: #000;
+    position: absolute;
+    bottom: 260px;
+    padding-left: 270px;
+    transition: height 250ms, bottom 250ms;
+
+    .cameraEffect {
+      height: 100px;
+      width: 100px;
+      overflow: hidden;
+      position: relative;
+
+      .effectWrapper {
+        height: 90px;
+        width: 90px;
+        padding: 0 15px 0 0;
+        overflow: hidden;
+        box-sizing: border-box;
+        position: relative;
+        border-radius: 10px;
+
+        &.selected {
+          border: none;
+        }
+        .effectVideo {
+          height: 150px;
+          width: 150px;
+          border: 5px solid rgba(0,0,0,0.0);
+          border-radius: 10px;
+          position: absolute;
+          top: -50px;
+          left: -33px;
+          transform: rotateY(180deg);
+
+          .selected {
+            border: 5px solid #fff;
+          }
+        }
+      }
+    }
+    &.active {
+      height: 100px;
+      bottom: 220px;
+      transition: height 250ms, bottom 250ms;
+
+      .cameraEffect {
+        .effectWrapper {
+          &.selected {
+            border: 3px solid #fff;
+            transition: border 500ms;
+          }
+        }
+      }
+    }
+  }
+}

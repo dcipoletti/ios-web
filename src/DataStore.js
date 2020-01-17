@@ -14,7 +14,11 @@ export const state = {
   },
   flashlightActive: false,
   cameraActive: true,
-  cameraType: 'photo'
+  effects: {
+    active: false,
+    effect: 'none'
+  },
+  cameraType: 'photo',
 };
 
 export const reducer = (state, action) => {
@@ -38,6 +42,11 @@ export const reducer = (state, action) => {
       return {
         ...state,
         cameraActive: action.cameraActive
+      }
+    case 'toggleEffects':
+      return {
+        ...state,
+        effects: action.effects
       }
     case 'selectCamera':
       return {

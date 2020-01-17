@@ -1,4 +1,5 @@
 import React, {useContext, useState} from 'react';
+import '../../../styles/common/animations.scss';
 import '../../../styles/presentation/camera/CameraControls.scss';
 
 import {Context} from '../../../DataStore';
@@ -6,6 +7,7 @@ import {Context} from '../../../DataStore';
 const CameraControls = (props) => {
 
   const {store, dispatch} = useContext(Context);
+  const [takingPhoto, setTakingPhoto] = useState(false);
   
   const cameraTypes = ['video','photo'];
   
@@ -14,6 +16,14 @@ const CameraControls = (props) => {
       type: 'selectCamera',
       cameraType: type
     });
+  }
+
+  function shutter() {
+    props.shutter();
+    setTakingPhoto(true);
+    setTimeout(() => {
+      setTakingPhoto(false);
+    },500);
   }
 
   return (
@@ -34,9 +44,17 @@ const CameraControls = (props) => {
         </div>
       </div>
       <div className="cameraButtons">
-        <div className="photoLibrary"></div>
-        <button className="shutterButton">
-          <div className="shutter"></div>
+        <div className="photoLibrary">
+          <div className="cameraOutput">
+						<img 
+							className="cameraPhoto" 
+							alt="Screen capture preview" /> 
+					</div>
+        </div>
+        <button 
+          className="shutterButton"
+          onClick={() => shutter()}>
+          <div className={`shutter${takingPhoto ? " active" : ""}`}></div>
         </button>
         <button className="cameraFlip">
           <div className="cameraBody">

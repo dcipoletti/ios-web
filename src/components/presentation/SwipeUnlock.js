@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/common/animations.css';
+import '../../styles/common/animations.scss';
 import '../../styles/presentation/SwipeUnlock.scss';
 
 const SwipeUnlock = () => {
