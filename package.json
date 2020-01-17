@@ -1,5 +1,6 @@
 {
   "name": "ios-web",
+  "homepage": "http://danielcipoletti.com/prototypes/ios-web",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
