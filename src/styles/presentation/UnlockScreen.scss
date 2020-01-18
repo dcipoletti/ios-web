@@ -3,6 +3,7 @@
   width: 100%;
   position: absolute;
   top: 0;
+  animation: 1.0s linear 0s normal forwards 1 openUnlock;
   
   .unlockBlur {
     height: 110%;
@@ -12,7 +13,13 @@
     position: absolute;
     top: -5%;
     left: -5%;
-    filter: blur(20px);
+    filter: blur(20px) brightness(0.8);
+    opacity: 1.0;
+
+    &.closing {
+      opacity: 0.0;
+      transition: opacity 500ms;
+    }
     
     .blurMask {
       height: 100%;
@@ -20,55 +27,146 @@
       background: rgba(255,255,255,0.2);
     }
   }
-
-  .numberWrapper {
+  .unlockVisible {
+    height: 100%;
+    width: 100%;
     position: absolute;
-    top: 400px;
-    left: calc(50% - 255px);
+    top: 0;
+    opacity: 1.0;
 
-    .numberGroup {
-      width: 510px;
-      height: 780px;
-      box-sizing: border-box;
+    &.closing {
+      opacity: 0.0;
+      transition: opacity 500ms;
+    }
+    
+    .enterPasscode {
+      font-family: SFProDisplay-Regular;
+      font-size: 2.0rem;
+      text-align: center;
+      color: #fff;
+      padding: 260px 0 0;
+      top: 200px;
+    }
+    .dotWrapper {
+      width: 100%;
+      margin-left: calc(50% - 90px);
+      padding: 15px 0 0;
+      transform: translateX(0px);
 
-      .number {
-        height: 170px;
-        width: 170px;
-        padding: 2%;
-
-        &.zero {
-          margin-left: 33%;
+      &.wrong {
+        animation: 0.4s ease 0s normal forwards 1 wrongShake;
+      }
+  
+      .unlockDots {
+        .dotContainer {
+          float: left;
+          padding: 12px;
+  
+          .dot {
+            height: 12px;
+            width: 12px;
+            border: 3px solid #fff;
+            border-radius: 50%;
+          }
         }
+      }
+      .enteredDots {
+        position: absolute;
 
-        .textWrapper {
-          height: 94%;
-          width: 94%;
-          background: rgba(215,215,215,0.3);
-          border-radius: 50%;
-          color: #fff;
-          box-sizing: border-box;
-          padding: 25px;
-          transition: background 150ms;
+        .dotContainer {
+          float: left;
+          padding: 12px;
+  
+          .dot {
+            height: 12px;
+            width: 12px;
+            background: #fff;
+            border: 3px solid #fff;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+  
+    .numberWrapper {
+      width: 100%;
 
-          .numberNumber {
-            font-family: SFProDisplay-Medium;
-            font-size: 3.8rem;
-            line-height: 3.8rem;
-
-            &.zero {
-              padding: 15px 0;
+      .numberGroup {
+        width: 510px;
+        height: 780px;
+        padding: 125px 55px 0;
+  
+        .number {
+          height: 170px;
+          width: 170px;
+          padding: 2%;
+          transform: scale(0.0);
+  
+          &.zero {
+            margin-left: 33%;
+          }
+  
+          .textWrapper {
+            height: 94%;
+            width: 94%;
+            background: rgba(200,200,200,0.3);
+            border-radius: 50%;
+            color: #fff;
+            box-sizing: border-box;
+            padding: 30px;
+            transition: background 150ms;
+  
+            .numberNumber {
+              font-family: SFProDisplay-Medium;
+              font-size: 3.8rem;
+              line-height: 3.8rem;
+  
+              &.zero {
+                padding: 15px 0;
+              }
+            }
+            .numberLetters {
+              font-family: SFProText-Bold;
+              font-size: 1.1rem;
+              letter-spacing: 0.2rem;
             }
           }
-          .numberLetters {
-            font-family: SFProText-Bold;
-            letter-spacing: 0.2rem;
+          &.selected {
+            .textWrapper {
+              background: rgba(215,215,215,0.7);
+              transition: background 150ms;
+            }
           }
         }
-        &.selected {
-          .textWrapper {
-            background: rgba(215,215,215,0.7);
-            transition: background 150ms;
+        &.closing {
+          .number {
+            animation: 250ms ease 0s normal forwards 1 closeUnlock;
           }
+        }
+        &.opening {
+          .number {
+            transform: scale(1.0);
+            transition: transform 250ms;
+          }
+        }
+      }
+    }
+    .optionButtons {
+      padding: 24px 0;
+
+      .buttonChoice {
+        width: 240px;
+        font-size: 1.4rem;
+        color: #fff;
+        text-align: center;
+        padding: 12px 24px;
+        position: absolute;
+
+        &.emergencyButton {
+          left: 0;
+        }
+        &.cancelButton {
+          right: 0;
         }
       }
     }

@@ -9,7 +9,7 @@ const DateTime = (props) => {
   
   return (
     <div className="DateTime">
-      <div className="lockIcon">
+      <div className={`lockIcon${store.wrongPasscode ? " wrong" : ""}`}>
         <div className="lockLock">
           <div className="lockHook"></div>
         </div>

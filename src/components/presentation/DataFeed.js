@@ -43,13 +43,11 @@ const DataFeed = () => {
           // Scroll stopped detection
           clearTimeout(scrollCallback.current);
           scrollCallback.current = setTimeout(() => {
-            console.log("CALLING TIMEOUT")
             scrolling.current = false;
             scrollAnimating.current = true;
 
             // Web Animation API
             function dynamicAnimate(from,to) {
-              console.log(from,to);
               var player = dataFeed.animate([
                 {paddingTop: from},
                 {paddingTop: to}

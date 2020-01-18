@@ -81,12 +81,16 @@
         position: absolute;
         top: 0;
         right: 0%;
-        transition: right 450ms;
         z-index: 2;
+        transition: right 450ms;
 
         &.cameraActive {
           right: 100%;
           transition: right 450ms;
+        }
+
+        &.opening {
+          animation: 500ms ease 0s normal forwards 1 hopUnlock;
         }
       }
     }

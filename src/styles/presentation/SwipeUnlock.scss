@@ -5,6 +5,10 @@
   bottom: 0;
   z-index: 3;
 
+  &.opening {
+    animation: 500ms ease 0s normal forwards 1 hopUnlock;
+  }
+
   .swipeButton {
     height: 100%;
     width: 100%;

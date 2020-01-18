@@ -1,11 +1,11 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import TimeStatusContainer from './container/TimeStatusContainer';
 import DateTime from './presentation/DateTime';
 import DataFeedContainer from './container/DataFeedContainer';
 import LockTools from './presentation/LockTools';
 import SwipeUnlock from './presentation/SwipeUnlock';
 import CameraAppContainer from './container/CameraAppContainer';
-//import UnlockScreen from './presentation/UnlockScreen';
+import UnlockScreen from './presentation/UnlockScreen';
 import '../styles/Phone.scss';
 
 import {Context} from '../DataStore';
@@ -13,6 +13,7 @@ import {Context} from '../DataStore';
 const Phone = () => {
 
   const {store} = useContext(Context);
+  const [openUnlock, setOpenUnlock] = useState(false);
 
   return (
     <div className="Phone">
@@ -33,14 +34,16 @@ const Phone = () => {
           <CameraAppContainer />
 
           {/* Screen Components */}
-          <div className={`onScreen${store.cameraActive ? " cameraActive" : ""}`}> 
+          <div className={`onScreen
+            ${store.cameraActive ? " cameraActive" : ""}
+            ${openUnlock ? " opening" : ""}`}> 
             <DataFeedContainer />
             <LockTools />
-            {/*<UnlockScreen />*/}
+            <UnlockScreen />
             <TimeStatusContainer />
             <DateTime />
           </div>
-          <SwipeUnlock />
+          <SwipeUnlock openUnlock={(value) => setOpenUnlock(value)} />
         </div>
       </div>
     </div>

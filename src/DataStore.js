@@ -24,7 +24,8 @@ export const state = {
     timer: 'Off'
   },
   cameraType: 'photo',
-  unlocking: false
+  unlocking: false,
+  wrongPasscode: false
 };
 
 export const reducer = (state, action) => {
@@ -88,6 +89,11 @@ export const reducer = (state, action) => {
       return {
         ...state,
         unlocking: action.unlocking
+      }
+    case 'toggleWrongPasscode':
+      return {
+        ...state,
+        wrongPasscode: action.wrongPasscode
       }
     default:
       return state;
