@@ -1,24 +1,24 @@
 ## ios-web
-ios-web aims to emulate certain key ui interactions, microinteractions, and functionality of iOS 13. It aims to provide clarity into the feasibility of reproducing iOS and mobile interactions and their performance in modern browsers.
+ios-web aims to emulate certain key UI interactions, microinteractions (woohoo!), and functional parity of iOS 13. It's bigger goal is to provide clarity into the feasibility of reproducing select iOS interactions (and their FPS performance, especially) in modern browsers.
 
-All interactions are done with pure vanilla Javascript and CSS3 animations. All icons and animated icons were reproduced using CSS or small svg files for performance.
+React is used as its composable and its reusable nature makes it painless to transport components and/or functionality around. For state management, Redux was not used and instead, React v16.8 Context API was used to manufacture the persistent state store.
+
+All interactions are done with pure vanilla Javascript and CSS3 animations. All icons and animated icons were reproduced using pure CSS with 1-2 small svg files.
 
 ## Available Functionality
 - iOS Lock Screen with live time and animations
 - Camera (from Lock Screen)
-  - Take pictures (Web RTC)
+  - Take photos (Web RTC)
   - Transition to image stack
   - Timers
   - Flash (front only as it is on your local machine)
+- PIN Unlock Screen
 
 ## WIP Functionality
 - Camera (from Lock Screen)
   - Live Photos (WebGL / GIF)
   - Effects (WebGL)
   - Video (WebGL)
-- Unlock Screen
-  - Screen unlock (PIN - small batch of code committed but commented out)
-
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
