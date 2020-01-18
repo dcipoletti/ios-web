@@ -53,7 +53,7 @@ const UnlockScreen = () => {
     if (!opening && store.unlocking) {
       setOpening(true);
     }
-  });
+  }, [opening, setOpening, store.unlocking]);
 
   return (
     store.unlocking ?
