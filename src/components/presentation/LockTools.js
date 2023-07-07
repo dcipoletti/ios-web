@@ -43,7 +43,7 @@ const LockTools = () => {
       </button>
       <button 
         className="toolButton camera"
-        onClick={() => toggleCamera()}>>
+        onClick={() => toggleCamera()}>
         <div className="buttonBackground"></div>
         <div className="toolIcon camera">
           <div className="cameraBody">
