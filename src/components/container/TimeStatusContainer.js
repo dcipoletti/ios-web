@@ -24,12 +24,13 @@ const TimeStatusContainer = () => {
 
   function renderTime() {
     let dateData = determineTime();
+    console.log(dateData)
     dispatch({
       type: 'setDateTime',
       dateTime: {
         day: dateData[0],
         date: `${dateData[1]} ${dateData[2]}`,
-        time: dateData[3]
+        time: dateData[4]
       }
     });
   }
